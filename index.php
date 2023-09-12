@@ -36,12 +36,8 @@ $sample_other_Artefacts="5";
 $part2_name1='Makram El Kebti, Zubair Ali Mansoor';
 $part2_name2='Islam Ahmed';
 $firm="Les entreprises Timepicks";
-$directly_involved_name1="Zubair Ali Mansoor";
-$directly_involved_name2="Makram El Kebti";
-$directly_involved_name3="Makram El Kebti";
-$directly_involved_Qualifications1="MSc. Comp. Sci, 15 years exp. In Soft/2 IEEE publications/Lead Engineer";
-$directly_involved_Qualifications2="Bach. Comm, 20 years exp. in HFT system development/President";
-$directly_involved_Qualifications3="Bach. Comm, 20 years exp. in HFT system development/President";
+$directly_involved_name=array('Zubair Ali Mansoor','Makram El Kebti','Makram El Kebti');
+$directly_involved_Qualifications=array('MSc. Comp. Sci, 15 years exp. In Soft/2 IEEE publications/Lead Engineer','Bach. Comm, 20 years exp. in HFT system development/President','Bach. Comm, 20 years exp. in HFT system development/President');
 $proxy_method="5";
 $unspecified_employee = 158752;
 $specified_employee = 13505;
@@ -64,44 +60,19 @@ $provincial_government_assistance=36677;
 $formatted_provincial_government_assistance=number_format($provincial_government_assistance);
 $Qualified_SR_ED_expenditures=$total_expenditures_transferred_to_you-$provincial_government_assistance;
 $formatted_Qualified_SR_ED_expenditures=number_format($Qualified_SR_ED_expenditures);
-$specified_employee_name1='Makram El Kebti';
-$specified_employee_name2='Employee 2';
-$specified_employee_name3='Employee 3';
-$specified_employee_name4='Employee 4';
-$specified_employee_name5='Employee 5';
-$specified_employee_salary1='30';
-$specified_employee_salary2='40';
-$specified_employee_salary3='50';
-$specified_employee_salary4='60';
-$specified_employee_salary5='70';
-$percentage_of_time_spent1='44';
-$percentage_of_time_spent2='55';
-$percentage_of_time_spent3='66';
-$percentage_of_time_spent4='77';
-$percentage_of_time_spent5='88';
-$a1=23;
-$b1=34;
-$a2=23;
-$b2=33;
-$a3=23;
-$b3=34;
-$a4=23;
-$b4=34;
-$a5=23;
-$b5=34;
-$identification_code1='Log less data rollback-risk management';
-$identification_code2='Multi-Tenant Cus';
-$identification_code3='Multiplex time series compression';
-$identification_code4='Log less data rollback-risk management';
-$identification_code5='Multi-Tenant Cus';
 
-$salray_in_tax_year_1=1000;
-$salray_in_tax_year_2=2000;
-$salray_in_tax_year_3=3000;
-$salray_in_tax_year_4=4000;
-$salray_in_tax_year_5=5000;
-
-$total_salary_tax_years=$salray_in_tax_year_1+$salray_in_tax_year_2+$salray_in_tax_year_3+$salray_in_tax_year_4+$salray_in_tax_year_5;
+$specified_employee_name=array('Makram El Kebti','Employee 2','Employee 3','Employee 4','Employee 5');
+$specified_employee_salary=array(30,40,50,60,70);
+$percentage_of_time_spent=array('44','55','66','77','88');
+$a=array(23,23,23,23,23);
+$b=array(34,33,34,34,34);
+$identification_code=array('Log less data rollback-risk management','Multi-Tenant Cus','Multiplex time series compression','Log less data rollback-risk management','Multi-Tenant Cus');
+$salray_in_tax_year=array(1000,2000,3000,4000,5000);
+$total_salary_tax_years=0;
+foreach($salray_in_tax_year as $amount)
+{
+    $total_salary_tax_years=$total_salary_tax_years+$amount;
+}
 $line307=30;
 $line309=400;
 $line340=400;
@@ -114,15 +85,16 @@ $Scientists_and_engineers=2;
 $Technologists_and_technicians=30;
 $Managers_and_administrator=30;
 $Experimental_development=5;
-$part8_claim_checkList1=5;
-$part8_claim_checkList2=5;
-$part8_claim_checkList3=5;
-$part8_claim_checkList4=5;
-$part8_claim_checkList5=5;
-$part8_claim_checkList6=5;
-$part8_claim_checkList7=5;
-$part8_claim_checkList8=5;
-$part8_claim_checkList9=5;
+$part8_claim_checkList=array(5,5,5,5,5,5,5,5,5);
+$claim_prepare=5;
+$name_claim_prepare=array('Les entreprise timepicks','Les entreprise timepicks','Les entreprise timepicks','Les entreprise timepicks','Les entreprise timepicks','Les entreprise timepicks','Les entreprise timepicks','Les entreprise timepicks','Les entreprise timepicks','Les entreprise timepicks');
+$business_no=array('84510 8083 RT0001','84510 8083 RT0001','84510 8083 RT0001','84510 8083 RT0001','84510 8083 RT0001','84510 8083 RT0001','84510 8083 RT0001','84510 8083 RT0001','84510 8083 RT0001','84510 8083 RT0001');
+$billing_aggrement_code=array(4,4,4,4,4,4,4,4,4,4);
+$billing_percentage=array(8000.00,8000.00,8000.00,8000.00,8000.00,8000.00,8000.00,8000.00,8000.00,8000.00);
+$other_bill_Arrangements=array('etc','etc','etc','etc','etc','etc','etc','etc','etc','etc');
+$total_Fee_paid_payable=array(8000,8000,8000,8000,8000,8000,8000,8000,8000,8000);
+$signing_officer_of_the_corporation='Makram Elkebti';
+$person_complete_the_form='Dufour Charbonneau Brunet & Associés Inc.';
 
 
 function calculateAmount($valueInColumn2, $percentageInColumn3,$a=0,$b=0,$get_smaller_amount) {
@@ -280,14 +252,13 @@ $pdf->SetFont('Arial', '', 8);
 insert_cell($pdf, $X = 82.8,    $Y = 33.9, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part2_name1, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
 insert_cell($pdf, $X = 82.8,    $Y = $pdf->GetY()+16.9, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part2_name2, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
 insert_cell($pdf, $X = 164.5,   $Y = $pdf->GetY(), $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($firm, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-insert_cell($pdf, $X = 12.5,    $Y = $pdf->GetY()+14.3, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($directly_involved_name1, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-insert_cell($pdf, $X = 109,     $Y = $pdf->GetY(), $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($directly_involved_Qualifications1, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-insert_cell($pdf, $X = 12.5,    $Y = $pdf->GetY()+6.3, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($directly_involved_name2, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-insert_cell($pdf, $X = 109,     $Y = $pdf->GetY(), $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($directly_involved_Qualifications2, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-insert_cell($pdf, $X = 12.5,    $Y = $pdf->GetY()+6.3, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($directly_involved_name3, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-insert_cell($pdf, $X = 109,     $Y = $pdf->GetY(), $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($directly_involved_Qualifications3, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-
-
+$y= $pdf->GetY()+14.3;
+for($i=0;$i<3;$i++)
+{
+    insert_cell($pdf, $X = 12.5,    $Y = $y, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($directly_involved_name[$i], 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
+    insert_cell($pdf, $X = 109,     $Y = $pdf->GetY(), $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($directly_involved_Qualifications[$i], 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
+    $y=$y+6.3;
+}
 $tplId = $pdf->importPage(4);
 $pdf->SetMargins(0, 0, 0);
 // add a page
@@ -337,59 +308,30 @@ $pdf->SetFont('Arial', '', 8);
 
 insert_cell($pdf, $X = 194, $Y = 38.4, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($formatted_unspecified_employee, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
 insert_cell($pdf, $X = 194, $Y = $pdf->GetY()+17.1, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($formatted_unspecified_employee, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 9.9, $Y = $pdf->GetY()+52.3, $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding($specified_employee_name1, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'C', $fill = false);
-insert_cell($pdf, $X = 42.7, $Y = $pdf->GetY(), $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding(number_format($specified_employee_salary1), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 75, $Y = $pdf->GetY(), $CellWidth = 20, $CellHeight = 5, $text = mb_convert_encoding(number_format($percentage_of_time_spent1), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
+$y=$pdf->GetY()+52.3;
+for($i=0;$i<5;$i++)
+{
+    insert_cell($pdf, $X = 9.9, $Y = $y, $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding($specified_employee_name[$i], 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'C', $fill = false);
+    insert_cell($pdf, $X = 42.7, $Y = $pdf->GetY(), $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding(number_format($specified_employee_salary[$i]), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
+    insert_cell($pdf, $X = 75, $Y = $pdf->GetY(), $CellWidth = 20, $CellHeight = 5, $text = mb_convert_encoding(number_format($percentage_of_time_spent[$i]), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
+    insert_cell($pdf, $X = 97, $Y = $pdf->GetY(), $CellWidth = 26.4, $CellHeight = 5, $text = calculateAmount($specified_employee_salary[$i],$percentage_of_time_spent[$i],'','','off'), $border = 0, $alignment = 'R', $fill = false);
+    insert_cell($pdf, $X = 124.3, $Y = $pdf->GetY(), $CellWidth = 24.8, $CellHeight = 5, $text = mb_convert_encoding(number_format(calculateResult($a[$i],$b[$i])), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
+    insert_cell($pdf, $X = 149.8, $Y = $pdf->GetY(), $CellWidth = 21.2, $CellHeight = 5, $text = calculateAmount($specified_employee_salary[$i],$percentage_of_time_spent[$i],$a[$i],$b[$i],'on'), $border = 0, $alignment = 'R', $fill = false);
+    $y=$y+7.4;
+}
 
-// Same variables must be use in both calculateAmount() as parameter1,2
-
-insert_cell($pdf, $X = 97, $Y = $pdf->GetY(), $CellWidth = 26.4, $CellHeight = 5, $text = calculateAmount($specified_employee_salary1,$percentage_of_time_spent1,'','','off'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 124.3, $Y = $pdf->GetY(), $CellWidth = 24.8, $CellHeight = 5, $text = mb_convert_encoding(number_format(calculateResult($a1,$b1)), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 149.8, $Y = $pdf->GetY(), $CellWidth = 21.2, $CellHeight = 5, $text = calculateAmount($specified_employee_salary1,$percentage_of_time_spent1,$a1,$b1,'on'), $border = 0, $alignment = 'R', $fill = false);
-
-
-
-insert_cell($pdf, $X = 9.9, $Y = $pdf->GetY()+7.4, $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding($specified_employee_name2, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'C', $fill = false);
-insert_cell($pdf, $X = 42.7, $Y = $pdf->GetY(), $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding(number_format($specified_employee_salary2), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 75, $Y = $pdf->GetY(), $CellWidth = 20, $CellHeight = 5, $text = mb_convert_encoding(number_format($percentage_of_time_spent2), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 97, $Y = $pdf->GetY(), $CellWidth = 26.4, $CellHeight = 5, $text = calculateAmount($specified_employee_salary2,$percentage_of_time_spent2,'','','off'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 124.3, $Y = $pdf->GetY(), $CellWidth = 24.8, $CellHeight = 5, $text = mb_convert_encoding(number_format(calculateResult($a2,$b2)), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 149.8, $Y = $pdf->GetY(), $CellWidth = 21.2, $CellHeight = 5, $text = calculateAmount($specified_employee_salary2,$percentage_of_time_spent2,$a2,$b2,'on'), $border = 0, $alignment = 'R', $fill = false);
-
-insert_cell($pdf, $X = 9.9, $Y = $pdf->GetY()+7.4, $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding($specified_employee_name3, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'C', $fill = false);
-insert_cell($pdf, $X = 42.7, $Y = $pdf->GetY(), $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding(number_format($specified_employee_salary3), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 75, $Y = $pdf->GetY(), $CellWidth = 20, $CellHeight = 5, $text = mb_convert_encoding(number_format($percentage_of_time_spent3), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 97, $Y = $pdf->GetY(), $CellWidth = 26.4, $CellHeight = 5, $text = calculateAmount($specified_employee_salary3,$percentage_of_time_spent3,'','','off'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 124.3, $Y = $pdf->GetY(), $CellWidth = 24.8, $CellHeight = 5, $text = mb_convert_encoding(number_format(calculateResult($a3,$b3)), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 149.8, $Y = $pdf->GetY(), $CellWidth = 21.2, $CellHeight = 5, $text = calculateAmount($specified_employee_salary3,$percentage_of_time_spent3,$a3,$b3,'on'), $border = 0, $alignment = 'R', $fill = false);
-
-insert_cell($pdf, $X = 9.9, $Y = $pdf->GetY()+7.3, $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding($specified_employee_name4, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'C', $fill = false);
-insert_cell($pdf, $X = 42.7, $Y = $pdf->GetY(), $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding(number_format($specified_employee_salary4), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 75, $Y = $pdf->GetY(), $CellWidth = 20, $CellHeight = 5, $text = mb_convert_encoding(number_format($percentage_of_time_spent4), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 97, $Y = $pdf->GetY(), $CellWidth = 26.4, $CellHeight = 5, $text = calculateAmount($specified_employee_salary4,$percentage_of_time_spent4,'','','off'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 124.3, $Y = $pdf->GetY(), $CellWidth = 24.8, $CellHeight = 5, $text = mb_convert_encoding(number_format(calculateResult($a4,$b4)), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 149.8, $Y = $pdf->GetY(), $CellWidth = 21.2, $CellHeight = 5, $text = calculateAmount($specified_employee_salary4,$percentage_of_time_spent4,$a4,$b4,'on'), $border = 0, $alignment = 'R', $fill = false);
-
-insert_cell($pdf, $X = 9.9, $Y = $pdf->GetY()+7.5, $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding($specified_employee_name5, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'C', $fill = false);
-insert_cell($pdf, $X = 42.7, $Y = $pdf->GetY(), $CellWidth = 32.2, $CellHeight = 5, $text = mb_convert_encoding(number_format($specified_employee_salary5), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 75, $Y = $pdf->GetY(), $CellWidth = 20, $CellHeight = 5, $text = mb_convert_encoding(number_format($percentage_of_time_spent5), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 97, $Y = $pdf->GetY(), $CellWidth = 26.4, $CellHeight = 5, $text = calculateAmount($specified_employee_salary5,$percentage_of_time_spent5,'','','off'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 124.3, $Y = $pdf->GetY(), $CellWidth = 24.8, $CellHeight = 5, $text = mb_convert_encoding(number_format(calculateResult($a5,$b5)), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 149.8, $Y = $pdf->GetY(), $CellWidth = 21.2, $CellHeight = 5, $text = calculateAmount($specified_employee_salary5,$percentage_of_time_spent5,$a5,$b5,'on'), $border = 0, $alignment = 'R', $fill = false);
 insert_cell($pdf, $X = 149.8, $Y = $pdf->GetY()+7.6, $CellWidth = 21.2, $CellHeight = 5, $text = mb_convert_encoding(number_format(sumValues($sumSmallValues)), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
 insert_cell($pdf, $X = 185.5, $Y = $pdf->GetY()-2.9, $CellWidth = 21.2, $CellHeight = 5, $text = mb_convert_encoding(number_format(sumValues($sumSmallValues)), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
 insert_cell($pdf, $X = 185.5, $Y = $pdf->GetY()+6.3, $CellWidth = 21.2, $CellHeight = 5, $text = mb_convert_encoding(number_format(sumValues($sumSmallValues)+$unspecified_employee), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
 $pdf->SetFont('Arial', '', 7);
-insert_cell($pdf, $X = 15, $Y = $pdf->GetY()+71.9, $CellWidth = 52.2, $CellHeight = 5, $text = mb_convert_encoding($identification_code1, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-insert_cell($pdf, $X = 67.5, $Y = $pdf->GetY(), $CellWidth = 33.6, $CellHeight = 5, $text = mb_convert_encoding(number_format($salray_in_tax_year_1), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 15, $Y = $pdf->GetY()+7.4, $CellWidth = 52.2, $CellHeight = 5, $text = mb_convert_encoding($identification_code2, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-insert_cell($pdf, $X = 67.5, $Y = $pdf->GetY(), $CellWidth = 33.6, $CellHeight = 5, $text = mb_convert_encoding(number_format($salray_in_tax_year_2), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 15, $Y = $pdf->GetY()+7.4, $CellWidth = 52.2, $CellHeight = 5, $text = mb_convert_encoding($identification_code3, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-insert_cell($pdf, $X = 67.5, $Y = $pdf->GetY(), $CellWidth = 33.6, $CellHeight = 5, $text = mb_convert_encoding(number_format($salray_in_tax_year_3), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 15, $Y = $pdf->GetY()+7.4, $CellWidth = 52.2, $CellHeight = 5, $text = mb_convert_encoding($identification_code4, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-insert_cell($pdf, $X = 67.5, $Y = $pdf->GetY(), $CellWidth = 33.6, $CellHeight = 5, $text = mb_convert_encoding(number_format($salray_in_tax_year_4), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 15, $Y = $pdf->GetY()+7.4, $CellWidth = 52.2, $CellHeight = 5, $text = mb_convert_encoding($identification_code5, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
-insert_cell($pdf, $X = 67.5, $Y = $pdf->GetY(), $CellWidth = 33.6, $CellHeight = 5, $text = mb_convert_encoding(number_format($salray_in_tax_year_5), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
+$y=$pdf->GetY()+71.9;
+for($i=0;$i<count($identification_code);$i++)
+{
+    insert_cell($pdf, $X = 15, $Y = $y, $CellWidth = 52.2, $CellHeight = 5, $text = mb_convert_encoding($identification_code[$i], 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
+    insert_cell($pdf, $X = 67.5, $Y = $pdf->GetY(), $CellWidth = 33.6, $CellHeight = 5, $text = mb_convert_encoding(number_format($salray_in_tax_year[$i]), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
+    $y=$y+7.4;
+}
+
 insert_cell($pdf, $X = 67.5, $Y = $pdf->GetY()+6.3, $CellWidth = 33.6, $CellHeight = 5, $text = mb_convert_encoding(number_format($total_salary_tax_years), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
 
 
@@ -410,17 +352,20 @@ insert_cell($pdf, $X = 194, $Y = $pdf->GetY()+5.7, $CellWidth = 13, $CellHeight 
 
 $pdf->SetFont('ZapfDingbats', '', 10);
 insert_cell($pdf, $X = 117.7, $Y = $pdf->GetY()-21.3, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($Experimental_development, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-
-insert_cell($pdf, $X = 183.3, $Y = $pdf->GetY()+54.5, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part8_claim_checkList1, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 183.3, $Y = $pdf->GetY()+5.6, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part8_claim_checkList2, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 183.3, $Y = $pdf->GetY()+5.7, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part8_claim_checkList3, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 183.3, $Y = $pdf->GetY()+5.6, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part8_claim_checkList4, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 183.3, $Y = $pdf->GetY()+6.2, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part8_claim_checkList5, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 183.3, $Y = $pdf->GetY()+13.5, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part8_claim_checkList6, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 183.3, $Y = $pdf->GetY()+5.6, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part8_claim_checkList7, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 183.3, $Y = $pdf->GetY()+5.8, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part8_claim_checkList8, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-insert_cell($pdf, $X = 183.3, $Y = $pdf->GetY()+5.8, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part8_claim_checkList9, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
-
+$y=$pdf->GetY()+54.5;
+for($i=0;$i<9;$i++)
+{
+    insert_cell($pdf, $X = 183.3, $Y = $y, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($part8_claim_checkList[$i], 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
+    if($i==4)
+    {
+        $y=$y+7.8;        
+    }
+    else if($i==3)
+    {
+        $y=$y+0.3;        
+    }
+    $y=$y+5.7;
+}
 
 $tplId = $pdf->importPage(8);
 $pdf->SetMargins(0, 0, 0);
@@ -429,7 +374,38 @@ $pdf->AddPage("P", "letter", 0);
 
 // use the imported page and place it at point 10,10 with a width of 100 mm
 $pdf->useTemplate($tplId);
-$pdf->SetFont('Arial', '', 9);
+$pdf->SetFont('ZapfDingbats', '', 10);
+insert_cell($pdf, $X = 12.4, $Y = 46, $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($claim_prepare, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
+$pdf->SetFont('Arial', '', 7);
+$y=$pdf->GetY()+59;
+for($i=0;$i<10;$i++)
+{
+    insert_cell($pdf, $X = 12.4, $Y = $y, $CellWidth = 35, $CellHeight = 5, $text = mb_convert_encoding($name_claim_prepare[$i], 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
+    insert_cell($pdf, $X = 58, $Y = $pdf->GetY(), $CellWidth = 35, $CellHeight = 5, $text = mb_convert_encoding($business_no[$i], 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
+    insert_cell($pdf, $X = 93, $Y = $pdf->GetY(), $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($billing_aggrement_code[$i], 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
+    insert_cell($pdf, $X = 115, $Y = $pdf->GetY(), $CellWidth = 13, $CellHeight = 5, $text = mb_convert_encoding($billing_percentage[$i], 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
+    insert_cell($pdf, $X = 129, $Y = $pdf->GetY(), $CellWidth = 50.5, $CellHeight = 5, $text = mb_convert_encoding('', 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'C', $fill = false);
+    insert_cell($pdf, $X = 183.5, $Y = $pdf->GetY(), $CellWidth = 25, $CellHeight = 5, $text = mb_convert_encoding(number_format($total_Fee_paid_payable[$i]), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
+    $y=$y+4.4;
+}
+$total_Fee_paid_payable_sum=0;
+foreach($total_Fee_paid_payable as $value)
+{
+    $total_Fee_paid_payable_sum=$total_Fee_paid_payable_sum+$value;
+}
+insert_cell($pdf, $X = 183.5, $Y = $pdf->GetY()+5, $CellWidth = 25, $CellHeight = 5, $text = mb_convert_encoding(number_format($total_Fee_paid_payable_sum), 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'R', $fill = false);
 
+insert_cell($pdf, $X = 20, $Y = $pdf->GetY()+47.5, $CellWidth = 15, $CellHeight = 5, $text = mb_convert_encoding($signing_officer_of_the_corporation, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
+
+$tplId = $pdf->importPage(9);
+$pdf->SetMargins(0, 0, 0);
+// add a page
+$pdf->AddPage("P", "letter", 0);
+
+// use the imported page and place it at point 10,10 with a width of 100 mm
+$pdf->useTemplate($tplId);
+$pdf->SetFont('Arial', '', 8);
+insert_cell($pdf, $X = 15.2, $Y = 27.3, $CellWidth = 15, $CellHeight = 5, $text = mb_convert_encoding($signing_officer_of_the_corporation, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
+insert_cell($pdf, $X = 15.2, $Y = $pdf->GetY()+15.2, $CellWidth = 15, $CellHeight = 5, $text = mb_convert_encoding($person_complete_the_form, 'ISO-8859-1', 'UTF-8'), $border = 0, $alignment = 'L', $fill = false);
 
 $pdf->Output();
